@@ -4,19 +4,13 @@ import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { TabsPage } from '../tabs/tabs';
-import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  data={ };
-  encodemyData:string;
-encodedData:{};
 
-  option:BarcodeScannerOptions ;
-  constructor(private barcodeScanner: BarcodeScanner,public navCtrl: NavController,public authServiceProvider:AuthServiceProvider) {
+  constructor(public navCtrl: NavController,public authServiceProvider:AuthServiceProvider) {
 
   }
 
@@ -46,22 +40,4 @@ encodedData:{};
 }
 
 
-scan(){
-   
-  this.option = {
-
-    prompt: "Please scan your code"
-  }
-  this.barcodeScanner.scan(this.option).then((barcodeData) => {
-    // Success! Barcode data is here
-    console.log(barcodeData);
-    this.data = barcodeData;
-
-
-   }, (err) => {
-       // An error occurred
-       console.log(err);
-   });
-
-}
 }
