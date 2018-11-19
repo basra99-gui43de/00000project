@@ -23,5 +23,12 @@
 //     padding: 1em 0;
 //   }
 
- 
-  
+ion-fab[bottom] {
+    bottom: 25px;
+}
+  .pad-r{
+      padding-right: 20px !important;
+  }
+  .pad-l{
+      padding-left: 20px !important;
+  }

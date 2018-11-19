@@ -22,6 +22,7 @@ import { LoginPage } from '../pages/login/login';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { MenuPage } from '../pages/menu/menu';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     TabsPage,
     RegisterPage,
     LoginPage,
+    MenuPage,
     UserProfilePage
   ],
   imports: [
@@ -49,6 +51,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     TabsPage,
     RegisterPage,
     LoginPage,
+    MenuPage,
     UserProfilePage
   ],
   providers: [

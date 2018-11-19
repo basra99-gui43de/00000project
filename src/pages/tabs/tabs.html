@@ -1,6 +1,10 @@
 <ion-tabs >
+    <ion-fab center bottom >
+    <button (click)="scan()"  ion-fab color="danger"><ion-icon name="qr-scanner"></ion-icon></button>
+  </ion-fab>
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="User" tabIcon="md-contact"></ion-tab>
+  <ion-tab class="pad-r" [root]="tab2Root" tabTitle="search" tabIcon="search"></ion-tab>
+   <ion-tab class="pad-l"  [root]="tab3Root" tabTitle="User" tabIcon="md-contact"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Setting" tabIcon="cog"></ion-tab>
+ 
 </ion-tabs>
