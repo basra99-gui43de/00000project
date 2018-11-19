@@ -4,7 +4,9 @@ import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 import { UserProfilePage } from '../user-profile/user-profile';
-
+import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
+import { NavController } from 'ionic-angular';
+import { MenuPage } from '../menu/menu';
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -15,10 +17,33 @@ export class TabsPage {
   tab3Root = ContactPage;
   tab4Root = UserProfilePage;
 
-  constructor() {
+  data={ };
+  encodemyData:string;
+encodedData:{};
 
+  option:BarcodeScannerOptions ;
+  constructor(private barcodeScanner: BarcodeScanner,public navCtrl: NavController) { 
+    
   }
+
   scan(){
-    console.log('ff');
+   
+    this.option = {
+
+      prompt: "Please scan your code"
+    }
+    this.barcodeScanner.scan(this.option).then((barcodeData) => {
+      // Success! Barcode data is here
+      console.log(barcodeData);
+      this.data = barcodeData;
+      this.navCtrl.push(MenuPage,{
+        data:this.data
+      });
+
+     }, (err) => {
+         // An error occurred
+         console.log(err);
+     });
+
   }
 }

@@ -1,6 +1,8 @@
 {
   "name": "sMenu",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular",
   "app_id": ""
 }

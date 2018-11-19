@@ -23,7 +23,7 @@ import { UserProfilePage } from '../pages/user-profile/user-profile';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { MenuPage } from '../pages/menu/menu';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 @NgModule({
   declarations: [
     MyApp,
@@ -59,7 +59,8 @@ import { MenuPage } from '../pages/menu/menu';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    AuthServiceProvider
+    AuthServiceProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

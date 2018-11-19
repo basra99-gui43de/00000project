@@ -14,8 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'menu.html',
 })
 export class MenuPage {
-
+  data={ };
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.data = navParams.get('data');
   }
 
   ionViewDidLoad() {
