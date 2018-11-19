@@ -14,5 +14,20 @@
 
 
 <ion-content padding>
-<h1>text : {{data.text}}</h1>
+
+<!-- 
+<h1 *ngFor="let item of data.food">food : {{item}}</h1>
+<h1 *ngFor="let item2 of data.drink">drink : {{item2}}</h1> -->
+<!-- <h1>drink : {{data.drink}}</h1> -->
+
+
+<ion-item-group>
+  <ion-item-divider color="light">DRINKS</ion-item-divider>
+  <ion-item *ngFor="let item of data.drink">{{item}}</ion-item>
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider color="light">FOODS</ion-item-divider>
+  <ion-item *ngFor="let item2 of data.food">{{item2}}</ion-item>
+</ion-item-group>
 </ion-content>

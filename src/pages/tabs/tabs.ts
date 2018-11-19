@@ -35,7 +35,7 @@ encodedData:{};
     this.barcodeScanner.scan(this.option).then((barcodeData) => {
       // Success! Barcode data is here
       console.log(barcodeData);
-      this.data = barcodeData;
+      this.data = JSON.parse(barcodeData.text) 
       this.navCtrl.push(MenuPage,{
         data:this.data
       });

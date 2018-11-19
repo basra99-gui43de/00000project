@@ -15,8 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MenuPage {
   data={ };
+  keys:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = navParams.get('data');
+    //  this.keys = Object.keys(this.data['food']);
+     //alert(this.keys);
   }
 
   ionViewDidLoad() {
