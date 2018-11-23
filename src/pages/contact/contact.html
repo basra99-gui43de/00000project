@@ -9,9 +9,16 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
+
   </ion-list>
+
+
+  <ion-item *ngFor="let item of cr">
+    <h3 >{{item}}</h3>
+  </ion-item>
+
+  <ion-item>
+      <ion-icon name="cash" item-start></ion-icon>
+      totale Price is {{totalePrice}} 
+    </ion-item>
 </ion-content>

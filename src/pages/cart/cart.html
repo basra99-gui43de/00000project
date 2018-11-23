@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        سلة الطلبات
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">الغاء</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-list-header>قائمة الطلبات</ion-list-header>
+
+    </ion-list>
+  
+    <ion-card *ngFor="let item of cr ; let i = index">
+<!-- 
+        <ion-card-header>
+          Card Header
+        </ion-card-header>
+       -->
+        <ion-card-content>
+          <ion-item >
+              <ion-icon name="trash" color="danger" (click)="delete(i,item.price)" item-end></ion-icon>
+              {{item.name}}
+              <p>{{item.price}}</p>
+          </ion-item>
+       
+        </ion-card-content>
+      
+      </ion-card>
+  
+    <ion-item *ngIf="totalePrice != 0 && totalePrice != null">
+        <ion-icon name="cash" item-end></ion-icon>
+        السعر النهائي {{totalePrice}} IQD
+      </ion-item>
+  
+    <ion-item *ngIf="totalePrice == 0 || totalePrice == null">
+        <ion-icon name="restaurant" item-end></ion-icon>
+      لا توجد طلبات
+      </ion-item>
+
+      <button *ngIf="totalePrice != 0 && totalePrice != null" ion-button color="danger" outline (click)="order()">طلب نهائي</button>
+  </ion-content>
+  

@@ -6,14 +6,12 @@
 
 <ion-content padding>
   <h2>Welcome to sMenu!</h2>
+  <h2>{{se}}</h2>
   <button ion-button round (click)="goToRegister()">Register</button>
   <button ion-button round (click)="goToLogin()">Login</button>
   <button ion-button round (click)="registerWithFacebook()">Facebook</button>
-  <button ion-button round (click)="registerWithGoogle()">Google</button>
-  <button ion-button round (click)="gcode()">show code</button>
+  <button ion-button id="demo" round (click)="registerWithGoogle()">Google</button>
+  <button ion-button color="danger" round (click)="gcode()">show code</button>
 
 
-  <p *ngFor="let item of items  | async ">{{item.name}}</p>
-  <p *ngFor="let item of items  | async ">{{item.location}}</p>
-  <p *ngFor="let item of items  | async ">{{item.menu.food.key1.name}}</p>
 </ion-content>

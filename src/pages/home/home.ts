@@ -5,7 +5,6 @@ import { LoginPage } from '../login/login';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { TabsPage } from '../tabs/tabs';
 import { BarcodeScanner  } from '@ionic-native/barcode-scanner';
-import { map } from 'rxjs/operators';
 import { AngularFireDatabase ,AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -15,37 +14,32 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 codedata={
-  drink:[
-    "cola",
-    "7Up"
-  ],
-  food:[
-    "kabab",
-    "shawrma"
-  ]
+rkey:'-LRkNCa8DDgct2EggHrf',
+tnum:'14'
 };
 itemsRef: AngularFireList<any>;
 items: Observable<any[]>;
-userData :AngularFireList<any>;
 encodedData={};
+myVar =[];
+se:any;
   constructor(private barcodeScanner: BarcodeScanner,public db:AngularFireDatabase,
     public navCtrl: NavController,public authServiceProvider:AuthServiceProvider) {
 
-      this.itemsRef = db.list('/restaurants', ref => ref.orderByChild('decs'))
+      this.itemsRef = db.list('/restaurants', ref => ref.orderByKey().equalTo(this.codedata.rkey))
       
       this.items = this.itemsRef.snapshotChanges().map(changes => {
         return changes.map(c => ({ 
           key: c.payload.key,
            name:c.payload.val().name,
            location:c.payload.val().location,
-           menu:c.payload.val().menu,
          
         
            })
         );
-        // console.log("ll"+this.items);
+       
       });
- 
+
+
   }
 
   goToRegister(){
@@ -83,5 +77,8 @@ gcode(){
     console.log(err);
   })
     }
-
+     myFunction() {
+      var x = document.getElementById("myFile");
+      x.click();
+  }
 }

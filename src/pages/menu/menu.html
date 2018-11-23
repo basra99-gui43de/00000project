@@ -6,28 +6,60 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>menu</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-<!-- 
-<h1 *ngFor="let item of data.food">food : {{item}}</h1>
-<h1 *ngFor="let item2 of data.drink">drink : {{item2}}</h1> -->
-<!-- <h1>drink : {{data.drink}}</h1> -->
-
-
-<ion-item-group>
-  <ion-item-divider color="light">DRINKS</ion-item-divider>
-  <ion-item *ngFor="let item of data.drink">{{item}}</ion-item>
-</ion-item-group>
-
-<ion-item-group>
-  <ion-item-divider color="light">FOODS</ion-item-divider>
-  <ion-item *ngFor="let item2 of data.food">{{item2}}</ion-item>
-</ion-item-group>
-</ion-content>
+    <ion-navbar>
+      <ion-title>menu</ion-title>
+      <ion-buttons end>
+          <button (click)="presentPopover()"  ion-button icon-only color="danger">
+            {{cartCont}}
+            <ion-icon  name="cart"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+  
+  <h1  *ngFor="let restaurant of restaurants | async  " >{{restaurant.name}}</h1>
+  <h1>رقم الطاولة : {{table}}</h1>
+  <ion-item-group>
+    <ion-item-divider color="danger">الاكلات</ion-item-divider>
+    <div  *ngFor="let item of items | async  " >
+    <ion-item *ngIf="item.restaurant_key == key && item.type == 'food'">
+        <ion-icon class="ico" name="information-circle" item-start></ion-icon>
+      <h3 >{{item.name}}</h3>
+      <p>{{item.price}}  IQD</p>
+      <ion-icon class="ico" (click)="addToCart(item.name,item.price)"  name="add" item-end></ion-icon>
+    </ion-item>
+    </div>
+  
+  </ion-item-group>
+  
+  <ion-item-group>
+      <ion-item-divider color="danger">المشروبات</ion-item-divider>
+      <div  *ngFor="let item of items | async  " >
+      <ion-item *ngIf="item.restaurant_key == key && item.type == 'drink'">
+          <ion-icon class="ico" name="information-circle" item-start></ion-icon>
+          <h3 >{{item.name}}</h3>
+          <p>  {{item.price}}  IQD</p>
+          <ion-icon class="ico" (click)="addToCart(item.name,item.price)"  name="add" item-end></ion-icon>
+        </ion-item>
+      </div>
+    
+    </ion-item-group>
+  
+  <ion-item-group>
+      <ion-item-divider color="danger">الحلويات</ion-item-divider>
+      <div  *ngFor="let item of items | async  " >
+      <ion-item *ngIf="item.restaurant_key == key && item.type == 'dessert'">
+          <ion-icon class="ico" name="information-circle" item-start></ion-icon>
+          <h3 >{{item.name}}</h3>
+          <p>{{item.price}}  IQD</p>
+          <ion-icon class="ico" (click)="addToCart(item.name,item.price)"  name="add" item-end></ion-icon>
+        </ion-item>
+      </div>
+    
+    </ion-item-group>
+  </ion-content>
+  

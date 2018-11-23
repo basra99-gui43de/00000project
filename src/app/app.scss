@@ -22,7 +22,14 @@
 //     width: 105px;
 //     padding: 1em 0;
 //   }
-
+@font-face {
+    font-family: 'Cairo';
+  font-weight: 300;
+  src:  url('../assets/fonts/SLXGc1nY6HkvalIkTpumxdt0UX8.woff2') format('woff2');
+}
+*{
+    font-family: 'Cairo'; 
+}
 ion-fab[bottom] {
     bottom: 25px;
 }
@@ -32,3 +39,14 @@ ion-fab[bottom] {
   .pad-l{
       padding-left: 20px !important;
   }
+
+  .tab-button[aria-selected=true] .tab-button-icon {
+    color: #f53d3d !important;
+}
+ .tab-button:hover:not(.disable-hover),  .tab-button[aria-selected=true] {
+    color: #f53d3d !important;
+}
+ion-content{
+    direction: rtl;
+    background-color: #e6e6e6 !important;
+}
