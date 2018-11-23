@@ -20,11 +20,14 @@ import { IonicStorageModule } from '@ionic/storage';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { MenuPage } from '../pages/menu/menu';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CartPage } from '../pages/cart/cart';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -36,14 +39,16 @@ import { CartPage } from '../pages/cart/cart';
     LoginPage,
     MenuPage,
     CartPage,
-    UserProfilePage
+    UserProfilePage,
+    EditProfilePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +61,8 @@ import { CartPage } from '../pages/cart/cart';
     LoginPage,
     MenuPage,
     CartPage,
-    UserProfilePage
+    UserProfilePage,
+    EditProfilePage
   ],
   providers: [
     StatusBar,
