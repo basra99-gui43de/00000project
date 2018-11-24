@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
-
-import { AboutPage } from '../about/about';
 import { HomePage } from '../home/home';
 import { UserProfilePage } from '../user-profile/user-profile';
 import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { NavController } from 'ionic-angular';
 import { MenuPage } from '../menu/menu';
 import { CartPage } from '../cart/cart';
+import { SearchPage } from '../search/search';
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
+  tab2Root = SearchPage;
   tab3Root = UserProfilePage;
   tab4Root = CartPage;
 

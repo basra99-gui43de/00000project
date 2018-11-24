@@ -3,7 +3,7 @@ page-user-profile {
    border-radius: 50%;
    border: 1px solid;
    border-color: rgba(117, 144, 235, 0);
-   width: 40%;
+   width: 35%;
    box-shadow: 1px 1px 1px 1px #ff000008;
    } 
 
@@ -12,115 +12,23 @@ page-user-profile {
        text-align: center;
   
    }
-   // .color{
-   //     border: 1px solid;
-   //     border-color: #e23d5f;
-   //     border-radius: 50%; 
-   //     background-image: linear-gradient(#e23a5c, #da664d);
-   //     // position: absolute;
-   //     // top: 107px;
-   //     // right: 106px;
-   //     width: 31px;
-   //     height: 31px;
-   //     box-shadow: 1px 1px #de6e6e63;
-   // }
 
-   // div ion-icon{
-   //     text-align: center;
-   //     color: white;
-   //     padding-top: 4px;
-   //     width: 110%;
-   //     font-size: 20px;
-
-   // }
- 
-   .arrowIcon{
-       color:#e23a5c;padding-right: 50%;
-   }
-
-
-   .arrowIconBest{
-       color:#e23a5c;padding-right: 55%;
-   }
-
-   .arrowIconLocation{
-       color:#e23a5c;padding-right: 48.5%;
-   }
-
-   .arrowIconRate{
-       color:#e23a5c;padding-right: 70%;
-   }
-
-   .arrowIconContact{
-       color:#e23a5c;padding-right: 68%;
-   }
-
-   .arrowIconSignOut{
-       color:#e23a5c;padding-right: 57%;
-   }
-
-   @media only screen and (max-width: 320px) {
-       .arrowIcon{
-           color:#e23a5c;padding-right: 40%;
-       }
-
-       .arrowIconBest{
-           color:#e23a5c;padding-right: 47%;
-       }
-
-       .arrowIconLocation{
-           color:#e23a5c;padding-right: 38%;
-       }
-
-       .arrowIconRate{
-           color:#e23a5c;padding-right: 68%;
-       }
-
-       .arrowIconContact{
-           color:#e23a5c;padding-right: 65%;
-       }
-   
-   }
-
-   @media only screen and (min-width: 768px) {
-       .arrowIcon{
-           color:#e23a5c;padding-right: 75%;
-       }
-       .arrowIconBest{
-           color:#e23a5c;padding-right: 77.2%;
-       }
-
-       .arrowIconLocation{
-           color:#e23a5c;padding-right: 74.2%;
-       }
-
-       .arrowIconRate{
-           color:#e23a5c;padding-left: 84.5%;
-       }
-
-
-       .arrowIconContact{
-           color:#e23a5c;padding-right: 83.5%;
-       }
-       .arrowIconSignOut{
-           color:#e23a5c;padding-right: 78%;
-       }
-   }
-
-
-  
-   .underline {
-       border-bottom: 1px solid #e43f60;
-       padding-bottom: 3%;
-     }
-     
-     .underline--blue {
-       border-bottom-color: #e23b5d0d;
-       box-shadow: 0px 0px #e43f60;
-     }
 
 .backIcon{
-   color: #488aff;
+   color: #fed70e;
+   font-weight: bold;
+   margin: 2px !important;
+}
+.shapeIcone{
+    color: #2a2a2a;
+    font-size: x-large;
+    margin: 0px !important;
+}
+ion-card-content {
+    display: block;
+    padding: 13px 11px 3px!important;
+    font-size: 1.4rem!important;
+    line-height: 1.4!important;
 }
 }
 

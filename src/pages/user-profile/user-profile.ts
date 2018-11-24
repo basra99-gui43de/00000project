@@ -9,6 +9,7 @@ import { EditProfilePage } from '../edit-profile/edit-profile';
 import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 /**
@@ -27,9 +28,10 @@ export class UserProfilePage {
 
   public isUpload: Boolean = false;
 
-  email: any;
-  myid: any;
+  email='';
+  myid='';
   itemList: AngularFireList<any>;
+  items: Observable<any[]>;
 
 itemArray = [];
 
@@ -45,6 +47,7 @@ itemArray = [];
    };
  redirect: boolean = false;
    userKey: any;
+   x:any;
 
    ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
@@ -57,52 +60,14 @@ itemArray = [];
     private storage: Storage, 
     public db: AngularFireDatabase,
     public authServiceProvider:AuthServiceProvider,
-    public navCtrl: NavController, public navParams: NavParams) {
-
-  
-
-
-    this.storage.get('email').then((val) =>{
-      this.email = val;
-      console.log('email: ', val);
-      
-    });
-
-    this.storage.get('uid').then((val) =>{
-      this.myid = val;
-      console.log('myid: ', val);
-    });
-
-if (this.redirect === false) {''}
-this.itemList = db.list('users');
-
-    this.itemList.snapshotChanges()
-    .subscribe(actions => {
-          actions.forEach(action => {
-            actions.map(action => ({ ['$key']: action.key, ...action.payload.val() }));
-
-            const y = action.payload.toJSON();
-            y['$key'] = action.key;
-            if (action.payload.child('uid').val() === this.myid ) {
-              
-              this.userKey = action.key;
-              console.log('action.key: ',  this.userKey);
-              this.itemArray.push(y as ListItemClass);
-              this.data.name = this.itemArray[0]['name'];
-              this.data.phone = this.itemArray[0]['phone'];
-              this.data.age = this.itemArray[0]['age'];
-              this.data.address = this.itemArray[0]['address'];
-              this.data.city = this.itemArray[0]['city'];
-              this.data.email = this.itemArray[0]['email'];
-              this.data.image = this.itemArray[0]['image'];
-            }              
-});
-    });
+    public navCtrl: NavController,public fire:AngularFireAuth, public navParams: NavParams) {
+    this.authServiceProvider.getUid().subscribe(uid=>{
+      this.myid= uid;
+      console.log(uid)
+    })
   }
 
-  moveToEdit(name, email, age,phone, address, city, userKey,fileId ){
-    //this.navCtrl.setRoot(EditProfilePage);
-  
+  moveToEdit(name, email, phone,age, address, city, userKey,myid,fileId ){  
     this.navCtrl.push(EditProfilePage, {
       name:name, 
       email:email, 
@@ -110,9 +75,9 @@ this.itemList = db.list('users');
       phone:phone,
       address:address,
       city:city,
-      userkey:this.userKey,
-      uid:this.myid,
-      fileId:this.data.fileId
+      userkey:userKey,
+      uid:myid,
+      fileId:fileId
     });
     
     console.log('userKey: ', this.userKey);
@@ -120,22 +85,6 @@ this.itemList = db.list('users');
     
 
   }
-
-  // onEdit( ) {
-
-
-  //   this.itemList.set(this.userKey , {
-  //     name : this.data.name  ,
-  //     phone :  this.data.phone ,
-  //     age : this.data.age ,
-  //     address :  this.data.address ,
-  //     city :  this.data.city ,
-  //     email: this.email,
-  //     uid: this.myid,
-  //     image: this.data.image
-  //   });
-
-  // }
 
 
 
@@ -174,18 +123,12 @@ this.itemList = db.list('users');
 
     }
 
+    login(){
+      this.navCtrl.push(LoginPage);
+    }
 
-
-
-
-
-
-
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserProfilePage');
-    console.log(this.email);
-    console.log(this.myid);
+  ionViewDidEnter() {
+       this.getUserData();
   }
 
 
@@ -198,14 +141,38 @@ this.navCtrl.setRoot(HomePage);
 
 loggedOut(){
   this.authServiceProvider.signOut().then(() => {
-    this.navCtrl.setRoot(LoginPage)
+    this.navCtrl.setRoot(LoginPage);
+    console.log('sign out is done');
   }).catch((error) =>{
 alert(error)
 console.log(error);
-console.log('sign out is done');
+
 
   });
 }
+
+getUserData(){
+ 
+  this.itemList = this.db.list('/users', ref => ref.orderByChild('uid').equalTo(this.myid))
+  this. items = this.itemList.snapshotChanges().map(changes => {
+    return changes.map(c => ({ 
+      key: c.payload.key,
+       name:c.payload.val().name,
+       email:c.payload.val().email,
+       image:c.payload.val().image,
+       phone:c.payload.val().phone,
+       age:c.payload.val().age,
+       address:c.payload.val().address,
+       city:c.payload.val().city,
+      
+       })
+    );
+  });
+
+// if (this.redirect === false) {''}
+}
+
+
 }
 
 export class ListItemClass {

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
-import { LoginPage } from '../login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { TabsPage } from '../tabs/tabs';
 import { BarcodeScanner  } from '@ionic-native/barcode-scanner';
 import { AngularFireDatabase ,AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+import { Storage } from '@ionic/storage';
+
 import 'rxjs/add/operator/map';
 @Component({
   selector: 'page-home',
@@ -17,54 +17,17 @@ codedata={
 rkey:'-LRkNCa8DDgct2EggHrf',
 tnum:'14'
 };
-itemsRef: AngularFireList<any>;
-items: Observable<any[]>;
+email='';
+uid='';
 encodedData={};
-myVar =[];
-se:any;
-  constructor(private barcodeScanner: BarcodeScanner,public db:AngularFireDatabase,
+
+  constructor(public fire:AngularFireAuth,public storage: Storage,private barcodeScanner: BarcodeScanner,public db:AngularFireDatabase,
     public navCtrl: NavController,public authServiceProvider:AuthServiceProvider) {
 
-      this.itemsRef = db.list('/restaurants', ref => ref.orderByKey().equalTo(this.codedata.rkey))
-      
-      this.items = this.itemsRef.snapshotChanges().map(changes => {
-        return changes.map(c => ({ 
-          key: c.payload.key,
-           name:c.payload.val().name,
-           location:c.payload.val().location,
-         
-        
-           })
-        );
-       
-      });
-
 
   }
 
-  goToRegister(){
-    this.navCtrl.push(RegisterPage)
-  }
-  goToLogin(){
-    this.navCtrl.push(LoginPage)
-  }
-
-   registerWithGoogle(){
-
-      this.authServiceProvider.signInWithGoogle().then(
-        ()=> this.navCtrl.setRoot(TabsPage),
-        error => console.log('error')
-      )
-
-  }
-
-  registerWithFacebook(){
-
-    this.authServiceProvider.signInWithFacebook().then(
-      ()=> this.navCtrl.setRoot(TabsPage),
-      error => console.log('error')
-    )
-
+  ionViewDidEnter() {
 }
 
 

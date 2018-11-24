@@ -5,7 +5,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'
 import { Observable } from 'rxjs/Observable';
 /**
  * Generated class for the CartPage page.
- *
+ 
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */

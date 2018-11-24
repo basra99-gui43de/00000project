@@ -27,6 +27,7 @@ import { MenuPage } from '../pages/menu/menu';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CartPage } from '../pages/cart/cart';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { SearchPage } from '../pages/search/search';
 
 @NgModule({
   declarations: [
@@ -40,11 +41,16 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     MenuPage,
     CartPage,
     UserProfilePage,
+    SearchPage,
     EditProfilePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(
+      MyApp, {
+        backButtonText: 'رجوع'
+      },
+    ),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -62,6 +68,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     MenuPage,
     CartPage,
     UserProfilePage,
+    SearchPage,
     EditProfilePage
   ],
   providers: [

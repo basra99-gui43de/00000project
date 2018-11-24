@@ -5,6 +5,7 @@ import { AngularFireStorage , AngularFireStorageReference , AngularFireUploadTas
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { Storage } from '@ionic/storage';
+import { UserProfilePage } from '../user-profile/user-profile';
 /**
  * Generated class for the EditProfilePage page.
  *
@@ -42,7 +43,7 @@ export class EditProfilePage {
     this.myInfo.address = this.navParams.get('address');
     this.myInfo.city = this.navParams.get('city');
     this.userkey = this.navParams.get('userkey');
-console.log('myiddddddddd', this.userkey);
+console.log('myiddddddddd', this.myInfo.phone);
 
 this.myInfo.uid = this.navParams.get('uid');
 console.log('this.myInfo.uid', this.myInfo.uid);
@@ -58,10 +59,8 @@ console.log('this.myInfo.uid', this.myInfo.uid);
       age : this.myInfo.age ,
       address :  this.myInfo.address ,
       city :  this.myInfo.city ,
-      uid: this.myInfo.uid,
-      email: this.myInfo.email
     });
-
+    this.navCtrl.setRoot(UserProfilePage);
   }
 
 

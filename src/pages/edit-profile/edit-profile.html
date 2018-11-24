@@ -1,51 +1,46 @@
-<!--
-  Generated template for the EditProfilePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-    <ion-navbar>
-      <ion-title>editProfile</ion-title>
-    </ion-navbar>
-  
+<ion-header >
+    <ion-toolbar color="yl">
+      <ion-title>
+        المعلومات الشخصية
+      </ion-title>
+    </ion-toolbar>
   </ion-header>
   
   
   <ion-content padding>
-      <ion-item>
-          <ion-label stacked>Name</ion-label>
+      <ion-item class="noBackColor"> 
+          <ion-label stacked>الاسم</ion-label>
           <ion-input type="text"  name="name" [(ngModel)]="myInfo.name"></ion-input>
         </ion-item>
       
-        <ion-item>
-          <ion-label stacked>Age</ion-label>
+        <ion-item class="noBackColor"> 
+            <ion-label stacked>العمر</ion-label>
           <ion-input type="text" name="age" [(ngModel)]="myInfo.age"></ion-input>
         </ion-item>
   
-        <ion-item>
-            <ion-label stacked>phone</ion-label>
+        <ion-item class="noBackColor"> 
+            <ion-label stacked>دقم الهاتف</ion-label>
             <ion-input type="text" name="phone" [(ngModel)]="myInfo.phone"></ion-input>
           </ion-item>
   
   
-          <ion-item>
-              <ion-label stacked>city</ion-label>
+          <ion-item class="noBackColor"> 
+              <ion-label stacked>المدينة</ion-label>
               <ion-input type="text" name="city" [(ngModel)]="myInfo.city"></ion-input>
             </ion-item>
   
-            <ion-item>
-                <ion-label stacked>Address</ion-label>
+            <ion-item class="noBackColor"> 
+                <ion-label stacked>العنوان الكامل</ion-label>
                 <ion-input type="text" name="address" [(ngModel)]="myInfo.address"></ion-input>
               </ion-item>
   
               <!-- <ion-item>
                   <input type="file" (change)="updateUpload($event)" accept=".png,.jpg" />
                 </ion-item> -->
-             
-              <ion-item>
-                  <button ion-button large (click)="onEdit()">update </button>
-                </ion-item>
+                <div padding>
+                    <button ion-button  block color="yl" class="loginBnt" (click)="onEdit()">تعديل</button>
+                    <ion-row></ion-row>
+                  </div>
+     
   </ion-content>
   

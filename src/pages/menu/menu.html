@@ -9,7 +9,7 @@
     <ion-navbar>
       <ion-title>menu</ion-title>
       <ion-buttons end>
-          <button (click)="presentPopover()"  ion-button icon-only color="danger">
+          <button (click)="presentPopover()"  ion-button icon-only color="yl">
             {{cartCont}}
             <ion-icon  name="cart"></ion-icon>
           </button>
@@ -24,7 +24,7 @@
   <h1  *ngFor="let restaurant of restaurants | async  " >{{restaurant.name}}</h1>
   <h1>رقم الطاولة : {{table}}</h1>
   <ion-item-group>
-    <ion-item-divider color="danger">الاكلات</ion-item-divider>
+    <ion-item-divider color="yl">الاكلات</ion-item-divider>
     <div  *ngFor="let item of items | async  " >
     <ion-item *ngIf="item.restaurant_key == key && item.type == 'food'">
         <ion-icon class="ico" name="information-circle" item-start></ion-icon>
@@ -37,7 +37,7 @@
   </ion-item-group>
   
   <ion-item-group>
-      <ion-item-divider color="danger">المشروبات</ion-item-divider>
+      <ion-item-divider color="yl">المشروبات</ion-item-divider>
       <div  *ngFor="let item of items | async  " >
       <ion-item *ngIf="item.restaurant_key == key && item.type == 'drink'">
           <ion-icon class="ico" name="information-circle" item-start></ion-icon>
@@ -50,7 +50,7 @@
     </ion-item-group>
   
   <ion-item-group>
-      <ion-item-divider color="danger">الحلويات</ion-item-divider>
+      <ion-item-divider color="yl">الحلويات</ion-item-divider>
       <div  *ngFor="let item of items | async  " >
       <ion-item *ngIf="item.restaurant_key == key && item.type == 'dessert'">
           <ion-icon class="ico" name="information-circle" item-start></ion-icon>

@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="yl">
       <ion-title>
         سلة الطلبات
       </ion-title>
@@ -11,11 +11,11 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-list-header>قائمة الطلبات</ion-list-header>
-
-    </ion-list>
+  <ion-content style="margin-top: 5%;">
+      <ion-item class="yl" *ngIf="totalePrice != 0 && totalePrice != null">
+          <ion-icon name="restaurant" item-end></ion-icon>
+       قائمة الطلبات
+        </ion-item>
   
     <ion-card *ngFor="let item of cr ; let i = index">
 <!-- 
@@ -34,16 +34,18 @@
       
       </ion-card>
   
-    <ion-item *ngIf="totalePrice != 0 && totalePrice != null">
+    <ion-item class="yl" *ngIf="totalePrice != 0 && totalePrice != null">
         <ion-icon name="cash" item-end></ion-icon>
         السعر النهائي {{totalePrice}} IQD
       </ion-item>
   
-    <ion-item *ngIf="totalePrice == 0 || totalePrice == null">
+    <ion-item class="yl" *ngIf="totalePrice == 0 || totalePrice == null">
         <ion-icon name="restaurant" item-end></ion-icon>
       لا توجد طلبات
       </ion-item>
+<ion-item >
+    <button *ngIf="totalePrice != 0 && totalePrice != null" ion-button round color="smoke" full (click)="order()">طلب نهائي</button>
 
-      <button *ngIf="totalePrice != 0 && totalePrice != null" ion-button color="danger" outline (click)="order()">طلب نهائي</button>
+</ion-item>
   </ion-content>
   

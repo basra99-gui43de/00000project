@@ -1,10 +1,11 @@
-<ion-tabs >
+<ion-tabs color="smoke">
     <ion-fab center bottom >
-    <button (click)="scan()"  ion-fab color="danger"><ion-icon name="qr-scanner"></ion-icon></button>
+    <button (click)="scan()"  ion-fab color="yl"><ion-icon name="qr-scanner"></ion-icon></button>
   </ion-fab>
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab class="pad-r" [root]="tab2Root" tabTitle="search" tabIcon="search"></ion-tab>
-   <ion-tab class="pad-l"  [root]="tab3Root" tabTitle="User" tabIcon="md-contact"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Cart" tabIcon="cart"></ion-tab>
+  <ion-tab [root]="tab1Root" tabTitle="الرئيسية" tabIcon="home"></ion-tab>
+  <ion-tab class="pad-r" [root]="tab2Root" tabTitle="البحث" tabIcon="search"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="السلة" tabIcon="cart"></ion-tab>
+
+   <ion-tab class="pad-l"  [root]="tab3Root" tabTitle="الملف الشخصي" tabIcon="md-contact"></ion-tab>
  
 </ion-tabs>

@@ -4,76 +4,96 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-    <!-- (click)="moveToEdit(data.name, data.email, data.phone, data.age, data.address, data.city, userkey,uid, data.fileId)" -->
-  <ion-navbar >
-   <ion-icon class="backIcon " name="ios-arrow-back-outline" (click)="moveToHome();"> Back</ion-icon> 
-     
-  </ion-navbar>
-</ion-header>
+<ion-header >
+    <ion-toolbar color="yl">
+      <ion-title>
+        الملف الشخصي
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 
 <ion-content padding >
     
-   <div class="bg-image ">
+   <div class="bg-image " *ngFor="let item of items | async  " >
      <span>
-      <img class="round-image" src="{{data.image}}"/>
+      <img class="round-image" src="{{item.image}}"/>
       <input type="file" (change)="updateUpload($event)" accept=".png,.jpg" />
     </span>
-      <p>{{data.name}}</p>
-      <p class="underline underline--blue">{{data.email}}</p>
+      <p>{{item.name}}</p>
+      <p class="underline underline--blue">{{item.email}}</p>
    </div>
-   <br> <br> <br> <br>  <br> 
+   <br>   <br> 
 
 
-   <ion-card >
-      <ion-card-content style="text-align: -webkit-right;" (click)="moveToEdit(data.name, data.email, data.phone, data.age, data.address, data.city, userkey,uid, data.fileId)" >
-          <span><ion-icon class="arrowIcon" name="md-arrow-round-back"></ion-icon></span> 
-       <span style="margin-right: 4%;"> المعلومات الشخصيه</span> 
-       <span><ion-icon style="color:#e23a5c;" name="person"></ion-icon></span> 
+   <ion-card *ngFor="let item of items | async  " >
+      <ion-card-content (click)="moveToEdit(item.name, item.email, item.phone, item.age, item.address, item.city, item.key,myid, item.fileId)">
+        <ion-item >
+                 <ion-icon class="shapeIcone" name="person" item-start></ion-icon>
+          <h2>المعلومات الشخصيه</h2>
+          <ion-icon class="backIcon"   name="arrow-round-back" item-end></ion-icon>
+        </ion-item>
       </ion-card-content>
     </ion-card>
 
     <ion-card >
-        <ion-card-content style="text-align: -webkit-right;">
-            <span><ion-icon class="arrowIconBest" name="md-arrow-round-back"></ion-icon></span> 
-         <span style="margin-right: 4%;"> الاكلات المفضله</span> 
-         <span><ion-icon style="color:#e23a5c;" name="star"></ion-icon></span> 
+        <ion-card-content >
+          <ion-item >
+                   <ion-icon class="shapeIcone" name="star" item-start></ion-icon>
+            <h2>الاكلات المفضله</h2>
+            <ion-icon class="backIcon"   name="arrow-round-back" item-end></ion-icon>
+          </ion-item>
         </ion-card-content>
       </ion-card>
 
       <ion-card >
-          <ion-card-content style="text-align: -webkit-right;">
-              <span><ion-icon class="arrowIconLocation" name="md-arrow-round-back"></ion-icon></span> 
-           <span style="margin-right: 4%;"> موقعك علي الخريطه </span> 
-           <span><ion-icon style="color:#e23a5c;" name="navigate"></ion-icon></span> 
+          <ion-card-content >
+            <ion-item >
+                     <ion-icon class="shapeIcone" name="navigate" item-start></ion-icon>
+              <h2>موقعك علي الخريطه</h2>
+              <ion-icon class="backIcon"   name="arrow-round-back" item-end></ion-icon>
+            </ion-item>
           </ion-card-content>
         </ion-card>
-
         <ion-card >
-            <ion-card-content style="text-align: -webkit-right;">
-                <span><ion-icon class="arrowIconRate" name="md-arrow-round-back"></ion-icon></span> 
-             <span style="margin-right: 4%;"> قيمنا</span> 
-             <span><ion-icon style="color:#e23a5c;" name="star-half"></ion-icon></span> 
+            <ion-card-content >
+              <ion-item >
+                       <ion-icon class="shapeIcone" name="star-half" item-start></ion-icon>
+                <h2>قيمنا</h2>
+                <ion-icon class="backIcon"   name="arrow-round-back" item-end></ion-icon>
+              </ion-item>
             </ion-card-content>
           </ion-card>
+    
 
           <ion-card >
-              <ion-card-content style="text-align: -webkit-right;">
-                  <span><ion-icon class="arrowIconContact" name="md-arrow-round-back"></ion-icon></span> 
-               <span style="margin-right: 4%;"> راسلنا </span> 
-               <span><ion-icon style="color:#e23a5c;" name="contacts"></ion-icon></span> 
+              <ion-card-content >
+                <ion-item >
+                         <ion-icon class="shapeIcone" name="contacts" item-start></ion-icon>
+                  <h2>راسلنا</h2>
+                  <ion-icon class="backIcon"   name="arrow-round-back" item-end></ion-icon>
+                </ion-item>
               </ion-card-content>
             </ion-card>
-
             <ion-card >
-                <ion-card-content style="text-align: -webkit-right;" (click)="loggedOut()">
-                    <span><ion-icon class="arrowIconSignOut" name="md-arrow-round-back"></ion-icon></span> 
-                 <span style="margin-right: 4%;"> تسحيل خروج </span> 
-                 <span><ion-icon style="color:#e23a5c;" name="log-out"></ion-icon></span> 
+                <ion-card-content ion-item *ngIf="authServiceProvider.afAuth.authState | async; let user; else showLogin"  (click)="loggedOut()">
+                  <ion-item >
+                    <ion-icon class="shapeIcone" name="log-out" item-start></ion-icon>
+                    <h2>تسحيل خروج</h2>
+                    <ion-icon class="backIcon"   name="arrow-round-back" item-end></ion-icon>
+                  </ion-item>
                 </ion-card-content>
+                <ng-template #showLogin>
+                    <ion-card-content ion-item  (click)="login()">
+                        <ion-item >
+                          <ion-icon class="shapeIcone" name="log-in" item-start></ion-icon>
+                          <h2>تسحيل دخول</h2>
+                          <ion-icon class="backIcon"   name="arrow-round-back" item-end></ion-icon>
+                        </ion-item>
+                      </ion-card-content> 
+                  </ng-template>
               </ion-card>
-
+       
 
   <ion-item>
       <input type="file" (change)="updateUpload($event)" accept=".png,.jpg" />
