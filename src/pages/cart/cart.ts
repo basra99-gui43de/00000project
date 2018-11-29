@@ -3,6 +3,8 @@ import { IonicPage, NavController, ViewController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'
 import { Observable } from 'rxjs/Observable';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+
 /**
  * Generated class for the CartPage page.
  
@@ -20,11 +22,18 @@ export class CartPage {
   totalePrice=0;
   tableNumber:any;
   rKey:any;
-  itemList: AngularFireList<any>
+  myid='';
+  itemList: AngularFireList<any>;
+  itemOrder: AngularFireList<any>;
   itemsRef: AngularFireList<any>;
   items: Observable<any[]>;
-    constructor(public db:AngularFireDatabase , public viewCtrl: ViewController,public storage: Storage,public navCtrl: NavController) {
+    constructor(public db:AngularFireDatabase ,public authServiceProvider:AuthServiceProvider,public viewCtrl: ViewController,public storage: Storage,public navCtrl: NavController) {
       this.itemList = db.list('tableOrder')
+      this.itemOrder = db.list('userOrder')
+      this.authServiceProvider.getUid().subscribe(uid=>{
+        this.myid= uid;
+        console.log(uid)
+      })
     }
     ionViewDidEnter() {
       this.storage.get('cartData').then((val) => {
@@ -68,9 +77,24 @@ export class CartPage {
         
        
       })
+      this.userOrder();
       this.totalePrice =0;
       this.cr =[];
       this.storage.set('totalePrice', this.totalePrice);
       this.storage.set('cartData', this.cr);
+     
+    }
+    userOrder(){
+      this.cr.forEach( (element) => {
+        
+        this.itemOrder.push({
+          orderName : element.name ,
+          userId : this.myid ,
+  
+          
+         
+        })
+    });
+
     }
 }

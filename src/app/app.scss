@@ -41,12 +41,50 @@ ion-fab[bottom] {
   }
 
   .tab-button[aria-selected=true] .tab-button-icon {
-    color: #fdd734 !important;
+    color: #ff9387 !important;
 }
  .tab-button:hover:not(.disable-hover),  .tab-button[aria-selected=true] {
-    color: #fdd734 !important;
+    color: #ff9387 !important;
 }
 ion-content{
     direction: rtl;
-    background-color: #e6e6e6 !important;
+    background-color: #fafafa !important;
+}
+ion-slides{
+    direction: ltr;
+}
+.grad{
+    color: #fff;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff9387+0,fcb07e+53,febf94+100 */
+background: #ff9387; /* Old browsers */
+background: -moz-linear-gradient(45deg, #ff9387 0%, #fcb07e 53%, #febf94 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #ff9387 0%,#fcb07e 53%,#febf94 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #ff9387 0%,#fcb07e 53%,#febf94 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9387', endColorstr='#febf94',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.toolbar-background {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff9387+0,fcb07e+53,febf94+100 */
+background: #ff9387; /* Old browsers */
+background: -moz-linear-gradient(45deg, #ff9387 0%, #fcb07e 53%, #febf94 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #ff9387 0%,#fcb07e 53%,#febf94 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #ff9387 0%,#fcb07e 53%,#febf94 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9387', endColorstr='#febf94',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+.toolbar-title {
+    color: #e6e6e6;
+}
+.code-img{
+    position: absolute;
+    z-index: 99;
+    width: 52%;
+    margin: 25%;
+}
+.bar-button{
+    color: #ffffff !important;
+    background-color: transparent;
+}
+.grad-out{
+border: solid 2px #ff9387;
+color: #ff9387;
 }

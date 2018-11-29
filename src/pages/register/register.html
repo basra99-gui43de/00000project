@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-    <ion-navbar color="yl">
+    <ion-navbar >
         <ion-title>التسجيل</ion-title>
     </ion-navbar>
   
@@ -15,11 +15,11 @@
   
   <ion-content padding >
      <div class="imgCenter">
-        <ion-icon class="addIcon" name="person-add"></ion-icon>
+        <img src="./assets/imgs/add-user.png" width="40%" />
         <h2>تسجيل مستخدم جديد</h2>
       </div>
     <ion-list>
-      <ion-item class="noBackColor">
+      <ion-item class="noBackColor noborderTop">
         <ion-label floating class="lb"> <ion-icon name="person" style="margin:8px"></ion-icon>البريد الالكتروني</ion-label>
         <ion-input type="text" [(ngModel)]="data.email" ></ion-input>
       </ion-item>
@@ -31,7 +31,7 @@
     </ion-list>
     
     <div padding>
-      <button ion-button  block color="yl" class="loginBnt" (click)="register()">تسجيل</button>
+      <button ion-button  block class="loginBnt grad" (click)="register()">تسجيل</button>
       <ion-row></ion-row>
     </div>
   

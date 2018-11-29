@@ -1,15 +1,98 @@
 <ion-header >
-    <ion-toolbar color="smoke">
+    <ion-toolbar calss="grad">
       <ion-title>
         الرئيسية
       </ion-title>
     </ion-toolbar>
   </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to sMenu!</h2>
-  
-  <button ion-button color="danger" round (click)="gcode()">show code</button>
+<ion-content >
+<div style="height:200px; padding: 0px">
+    <ion-slides  autoplay="3000" loop="true" speed="2000">
+        <ion-slide>
+            <img  class="slide-img"   src="./assets/imgs/slide/1.jpg"  />
+        </ion-slide>
+        <ion-slide>
+            <img  class="slide-img"  src="./assets/imgs/slide/2.jpg"  />
+        </ion-slide>
+        <ion-slide>
+            <img class="slide-img" src="./assets/imgs/slide/3.jpg"  />
+        </ion-slide>
+      </ion-slides>
+</div>
+
+     <h5>المطاعم المميزة</h5>
+    <ion-scroll scrollX="true" style=" white-space: nowrap; height: 38%;">
+        <ion-card >
+        <img src="./assets/imgs/front.jpg"  />
+      <ion-card-content>
+        <h2>مطعم تجريبي ١</h2>
+      </ion-card-content>
+    </ion-card>
+    <ion-card >
+        <img src="./assets/imgs/front.jpg"  />
+      <ion-card-content>
+        <h2>مطعم تجريبي ٢</h2>
+      </ion-card-content>
+    </ion-card>
+    <ion-card >
+        <img src="./assets/imgs/front.jpg"  />
+      <ion-card-content>
+        <h2>مطعم تجريبي ٣</h2>
+      </ion-card-content>
+    </ion-card>
+    </ion-scroll>
+
+     <h5>الاكلات المميزة</h5>
+    <ion-scroll scrollX="true" style=" white-space: nowrap; height: 35%;">
+        <ion-card >
+        <img src="./assets/imgs/food2.jpg"  />
+      <ion-card-content>
+            <h2>بيتزا</h2>
+            <h5>مطعم تجريبي ١</h5>
+      </ion-card-content>
+    </ion-card>
+    <ion-card >
+        <img src="./assets/imgs/food2.jpg"  />
+      <ion-card-content>
+        <h2>كبة</h2>
+        <h5>مطعم تجريبي ٢</h5>
+      </ion-card-content>
+    </ion-card>
+    <ion-card >
+        <img src="./assets/imgs/food2.jpg"  />
+      <ion-card-content>
+            <h2>بركر ع الفحم</h2>
+            <h5>مطعم تجريبي ٣</h5>
+      </ion-card-content>
+    </ion-card>
+    </ion-scroll>
+
+
+
+        <h5 *ngIf="authServiceProvider.afAuth.authState | async">الاكلات المقترحة</h5>
+   
+        <ion-scroll *ngIf="authServiceProvider.afAuth.authState | async" scrollX="true" style=" white-space: nowrap; height: 35%;">
+        <div style="text-align:center ">
+            <img style=" padding: 5%;" *ngIf="h == 0" src="./assets/imgs/loading.gif"  />
+        </div>
+            <ion-card *ngFor="let item of duplicated">
+            <img src="./assets/imgs/food.jpg"  />
+          <ion-card-content>
+            <h2>{{item.name}}</h2>
+          </ion-card-content>
+        </ion-card>
+        </ion-scroll>
+
+<!-- 
+<div style="text-align:center;padding: 10px;">
+    <button ion-button class="grad" round (click)="gcode()">show code</button>
+
+</div> -->
+<div style="text-align:center;padding: 10px;">
+    <button ion-button class="grad" round (click)="go()">show menu</button>
+
+</div>
 
 
 </ion-content>

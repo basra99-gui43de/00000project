@@ -5,60 +5,75 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar> <ion-title>تسجيل الدخول</ion-title> </ion-navbar>
+</ion-header>
 
-    <ion-navbar color="yl">
-        <ion-title>تسجيل الدخول</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content padding>
+<ion-content padding>
+  <div class="imgCenter"><img src="./assets/imgs/icon.png" width="50%" /></div>
+
+  <ion-list>
+    <ion-item class="noBackColor noborderTop">
+      <ion-label floating class="lb">
+        <ion-icon name="person" style="margin:8px"></ion-icon>البريد
+        الالكتروني</ion-label
+      >
+      <ion-input type="text" [(ngModel)]="data.email"></ion-input>
+    </ion-item>
+
+    <ion-item class="noBackColor">
+      <ion-label floating class="lb">
+        <ion-icon name="lock" style="margin:8px"></ion-icon>كلمة
+        المرور</ion-label
+      >
+      <ion-input type="password" [(ngModel)]="data.password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button ion-button block class="loginBnt grad" (click)="login()">
+      دخول
+    </button>
+    <ion-row>
+      <ion-col col-6>
+        <button class="clearBtn" ion-button color="smoke" clear>
+          هل نسيت كلمة المرور ؟
+        </button>
+      </ion-col>
+      <ion-col col-6>
+        <button
+          class="clearBtn"
+          ion-button
+          block
+          color="smoke"
+          style="padding-right: 25%;"
+          clear
+          (click)="goToRegister()"
+        >
+          تسجيل جديد
+        </button>
+      </ion-col>
+    </ion-row>
     <div class="imgCenter">
-     <img src="./assets/imgs/icon.png" width="50%" />
-    </div>
- 
-    <ion-list>
-      
-      <ion-item class="noBackColor">
-        <ion-label floating class="lb"> <ion-icon name="person" style="margin:8px"></ion-icon>البريد الالكتروني</ion-label>
-        <ion-input type="text"[(ngModel)]="data.email" ></ion-input>
-      </ion-item>
-    
-      <ion-item class="noBackColor">
-        <ion-label floating class="lb"> <ion-icon name="lock" style="margin:8px"></ion-icon>كلمة المرور</ion-label>
-        <ion-input type="password" [(ngModel)]="data.password"></ion-input>
-      </ion-item>
-  
-    </ion-list>
-    
-    <div  padding>
-      <button ion-button block  color="yl" class="loginBnt" (click)="login()">دخول</button>
-      <ion-row>
-        <ion-col col-6>
-                <button class="clearBtn" ion-button color="smoke" clear >هل نسيت كلمة المرور ؟</button>
-        </ion-col>
-        <ion-col col-6>
-                <button class="clearBtn" ion-button block color="smoke" style="padding-right: 25%;" clear (click)="goToRegister()"> تسجيل جديد</button>
-        </ion-col>
-      </ion-row>
-<div class="imgCenter">
-  
-              <button ion-button  class="callBtn" color="primary" (click)="registerWithFacebook()">
-                  <div style="margin:8px">الدخول بـ الفيسبوك</div>
-                    <ion-icon name="logo-facebook" ></ion-icon>
-                </button>
-   
-            <button ion-button   class="callBtn" color="dark-red" (click)="registerWithGoogle()">
-                <div style="margin:8px">الدخول بـ كوكل </div>
-                  <ion-icon name="logo-googleplus" ></ion-icon>
-              </button>
-    
-</div>
+      <button
+        ion-button
+        class="callBtn"
+        color="primary"
+        (click)="registerWithFacebook()"
+      >
+        <div style="margin:8px">الدخول بـ الفيسبوك</div>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
 
-    
-      <!-- <button ion-button (click)="logout()">logout</button> -->
+      <button
+        ion-button
+        class="callBtn"
+        color="dark-red"
+        (click)="registerWithGoogle()"
+      >
+        <div style="margin:8px">الدخول بـ كوكل</div>
+        <ion-icon name="logo-googleplus"></ion-icon>
+      </button>
     </div>
-    
-  </ion-content>
-  
+  </div>
+  <ion-item class="noborderBottom noborderTop noBackColor"></ion-item>
+</ion-content>

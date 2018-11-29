@@ -1,12 +1,27 @@
 page-login {
-    .noBackColor{
 
-        background-color: #fff0;
-    }
     .imgCenter{
         text-align: center;
     }
     .clearBtn{
         font-size: 1.3rem;
+
     }
+
+    .noborderTop {
+        border-top: 0.55px solid #c8c7cc00 !important;
+    }
+    .noBackColor{
+        background-color: #fff0;
+    }
+    .noborderBottom {
+        border-bottom: 0.55px solid #c8c7cc00 !important;
+
+        .item-inner {
+            border-bottom: 0.55px solid #c8c7cc00 !important;
+        }
+    }
+    .lb{color: #2a2a2a !important;}
+
 }
+

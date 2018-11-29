@@ -1,11 +1,123 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar>
+      <ion-title> 2قائمة الطعام</ion-title>
+      <ion-buttons end>
+          <button (click)="goToCart()"  ion-button icon-only color="light">
+            {{cartCont}}
+            <ion-icon  name="cart"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+  
+  <h1  *ngFor="let restaurant of restaurants | async  " >{{restaurant.name}}</h1>
+  <h1>رقم الطاولة : {{table}}</h1>
+  <ion-item-group>
+    <ion-item-divider class="grad">الاكلات</ion-item-divider>
+<div *ngFor="let item of items | async  ">
+    <ion-card *ngIf="item.restaurant_key == key && item.type == 'food'">
+      <ion-card-header>
+        <h3 >{{item.name}}</h3>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-4>
+             <p>{{item.price}}  دينار</p>
+          </ion-col>
+          <ion-col col-5>
+              <span style="color:#ffa07f;">
+             <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-half"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </span>
+          </ion-col>
+          <ion-col col-3>         
+           <div class="btn-div" (click)="addToCart(item.name,item.price)">
+              <img  class="btn-img"   src="./assets/imgs/add3.png"  />
+           </div>      
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+</div>
+  </ion-item-group>
+  
+  <ion-item-group>
+      <ion-item-divider class="grad">المشروبات</ion-item-divider>
+      <div *ngFor="let item of items | async  ">
+          <ion-card *ngIf="item.restaurant_key == key && item.type == 'drink'">
+            <ion-card-header>
+              <h3 >{{item.name}}</h3>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-row>
+                <ion-col col-4>
+                   <p>{{item.price}}  دينار</p>
+                </ion-col>
+                <ion-col col-5>
+                    <span style="color:#ffa07f;">
+                   <ion-icon name="star-outline"></ion-icon>
+                    <ion-icon name="star-half"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </span>
+                </ion-col>
+                <ion-col col-3>         
+                 <div class="btn-div" (click)="addToCart(item.name,item.price)">
+                    <img  class="btn-img"   src="./assets/imgs/add3.png"  />
+                 </div>      
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+      </div>
+    </ion-item-group>
+      
+  <ion-item-group>
+      <ion-item-divider class="grad">الحلويات</ion-item-divider>
+      <div *ngFor="let item of items | async  ">
+          <ion-card *ngIf="item.restaurant_key == key && item.type == 'dessert'">
+            <ion-card-header>
+              <h3 >{{item.name}}</h3>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-row>
+                <ion-col col-4>
+                   <p>{{item.price}}  دينار</p>
+                </ion-col>
+                <ion-col col-5>
+                    <span style="color:#ffa07f;">
+                   <ion-icon name="star-outline"></ion-icon>
+                    <ion-icon name="star-half"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </span>
+                </ion-col>
+                <ion-col col-3>         
+                 <div class="btn-div" (click)="addToCart(item.name,item.price)">
+                    <img  class="btn-img"   src="./assets/imgs/add3.png"  />
+                 </div>      
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+      </div>
+    
+    </ion-item-group>
+  </ion-content>
+  

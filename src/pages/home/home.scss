@@ -1,3 +1,23 @@
 page-home {
+    ion-card{
+  
+        display: inline-block;
+      }
+      .card {
 
+        width: calc(50% - 24px) !important;
+    
+    }
+
+    .slide-img{
+        height:200px;
+        width:100%;
+        // border-bottom-left-radius: 50%;
+        // border-bottom-right-radius: 50%;
+    }
+
+    ion-scroll.scroll-x .scroll-content {
+        overflow-x: auto;
+        background-color: #e8e8e8 !important;
+    }
 }

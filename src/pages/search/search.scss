@@ -1,21 +1,47 @@
 page-search {
     .button.activated {
-        background-color: #fde34e;
+        background-color: #ff9882;
         opacity: 1;
-        color:#2a2a2a;
+        color:#fff;
     }
-    .button-ios {
+    .button {
         border-radius: 4px;
         height: 2.8em;
         font-size: 1.6rem;
-        color: #2a2a2a;
-        background-color: #fed70e;
+        color: #fff;
+        background-color: #ff9882;
         margin: 0.4rem 0.2rem;
         padding: 0 1em;
     }
-    .item-ios .item-button {
+    .item .item-button {
         padding: 0 1.5em;
         height: 90px;
         font-size: 2.5rem;
     }
+    .button-inner {
+
+        display: grid;
+     
+    }
+
+.btn{
+    height: 145px;
+    font-size: 20px;
+    width: 75% !important;
+
+}
+.btn:hover{
+    background-color: #ff9882 !important;
+    color:#fff;
+}
+.btn-img{
+   height: 100px;
+padding-top: 2px;
+padding-bottom: 2px;
+}
+ion-grid{
+    margin-top: 10%;
+    margin-right: 10% !important;
+}
+ion-row{text-align: center;    margin-bottom: 20%;}
 }

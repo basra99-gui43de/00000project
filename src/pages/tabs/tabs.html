@@ -1,6 +1,7 @@
-<ion-tabs color="smoke">
-    <ion-fab center bottom >
-    <button (click)="scan()"  ion-fab color="yl"><ion-icon name="qr-scanner"></ion-icon></button>
+<ion-tabs color="light">
+    <ion-fab (click)="scan()" center bottom >
+        <img  class="code-img"   src="./assets/imgs/qrcode.png"  />
+    <button   ion-fab class="grad"></button>
   </ion-fab>
   <ion-tab [root]="tab1Root" tabTitle="الرئيسية" tabIcon="home"></ion-tab>
   <ion-tab class="pad-r" [root]="tab2Root" tabTitle="البحث" tabIcon="search"></ion-tab>

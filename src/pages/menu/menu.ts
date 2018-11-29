@@ -90,8 +90,11 @@ export class MenuPage {
    this.storage.set('totalePrice', this.totalePrice);
   }
   presentPopover() {
+
     const modal = this.modalCtrl.create(CartPage);
     modal.present();
   }
-  
+  goToCart(){
+    this.navCtrl.push(CartPage);
+  }
 }
